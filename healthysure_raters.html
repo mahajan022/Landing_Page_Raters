@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthysure — Insurance Raters</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark:  #095244;
+  --green-mid:   #0c725f;
+  --green-main:  #11a387;
+  --green-light: #e7f6f3;
+  --green-pale:  #f4faf8;
+  --text-dark:   #0a2e26;
+  --text-mid:    #3d6b62;
+  --text-muted:  #7aada3;
+  --border:      rgba(9,82,68,0.12);
+  --white:       #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--green-pale);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--green-dark);
+  padding: 2rem 2.5rem 2.5rem;
+}
+
+.header-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+/* swap logo.png here — just replace the <span> with <img src="logo.png"> */
+.logo-box {
+  width: 40px; height: 40px;
+  background: var(--green-main);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-box svg { width: 22px; height: 22px; }
+.logo-text {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.header-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.375rem;
+}
+.header-sub {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+}
+
+/* ── Main ── */
+.main {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.5rem 2.5rem 4rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-main);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px rgba(9,82,68,0.10);
+  border-color: var(--green-main);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.insurer-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insurer-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: var(--green-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.insurer-name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-mid);
+}
+
+.type-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+.ghi  { background: #e0f4ef; color: #0a5244; }
+.gpa  { background: #e8f5e1; color: #1e5c14; }
+.xlsx { background: #fff3e0; color: #7a4300; }
+.soon { background: #f0f0f0; color: #888; }
+
+.card-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+
+.card-desc {
+  font-size: 0.8375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.dot.live   { background: var(--green-main); animation: blink 2s ease infinite; }
+.dot.dl     { background: #f5a623; }
+.dot.soon   { background: #ccc; }
+
+@keyframes blink {
+  0%,100% { opacity:1; } 50% { opacity:0.4; }
+}
+
+.arrow-btn {
+  width: 30px; height: 30px;
+  background: var(--green-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green-mid);
+  transition: background 0.18s, color 0.18s;
+  flex-shrink: 0;
+}
+.card:hover .arrow-btn {
+  background: var(--green-main);
+  color: #fff;
+}
+.arrow-btn svg { width: 14px; height: 14px; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .main { padding: 1.5rem 1.25rem 3rem; }
+  .header { padding: 1.5rem 1.25rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-row">
+      <!-- Replace below with: <img src="logo.png" style="height:40px;"> when ready -->
+      <div class="logo-box">
+        <svg viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 6.03 2 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z" fill="rgba(255,255,255,0.15)"/><path d="M11 6v10M6 11h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <span class="logo-text">Healthysure</span>
+    </div>
+    <div class="header-title">Insurance Rater Portal</div>
+    <div class="header-sub">View-only access · Select a rater to get started</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="section-label">Available Raters</div>
+  <div class="grid">
+
+    <!-- Tata AIG GHI -->
+    <a class="card" href="https://effervescent-axolotl-9d2a86.netlify.app/" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="insurer-pill">
+          <div class="insurer-icon">TATA<br>AIG</div>
+          <span class="insurer-name">Tata AIG</span>
+        </div>
+        <span class="type-badge ghi">GHI</span>
+      </div>
+      <div class="card-title">Group Health Insurance</div>
+      <div class="card-desc">Premium calculator for Tata AIG GHI. Covers age bands, sum insured slabs, and employee configurations.</div>
+      <div class="card-footer">
+        <span class="status"><span class="dot live"></span> Live</span>
+        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+
+    <!-- ICICI Lombard -->
+    <a class="card" href="https://icici-lombard-calculator.netlify.app/" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="insurer-pill">
+          <div class="insurer-icon">ICICI<br>Lom.</div>
+          <span class="insurer-name">ICICI Lombard</span>
+        </div>
+        <span class="type-badge ghi">GHI</span>
+      </div>
+      <div class="card-title">Group Health Insurance</div>
+      <div class="card-desc">ICICI Lombard GHI rater. Supports floater and individual cover structures with full premium breakdown.</div>
+      <div class="card-footer">
+        <span class="status"><span class="dot live"></span> Live</span>
+        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+
+    <!-- Bajaj — Excel download -->
+    <a class="card" href="Bajaj_Rater_Calculator-New.xlsx">
+      <div class="card-head">
+        <div class="insurer-pill">
+          <div class="insurer-icon">Bajaj<br>All.</div>
+          <span class="insurer-name">Bajaj Allianz</span>
+        </div>
+        <span class="type-badge gpa">GPA</span>
+      </div>
+      <div class="card-title">Bajaj Allianz Rater</div>
+      <div class="card-desc">Bajaj Allianz premium calculator. Click to open the Excel rater and compute premiums.</div>
+      <div class="card-footer">
+        <span class="status"><span class="dot live"></span> Excel</span>
+        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+
+    <!-- Tata AIG GPA Excel download -->
+    <a class="card" href="Tata_AIG_GPA_Rater.xlsx">
+      <div class="card-head">
+        <div class="insurer-pill">
+          <div class="insurer-icon">TATA<br>AIG</div>
+          <span class="insurer-name">Tata AIG</span>
+        </div>
+        <span class="type-badge gpa">GPA</span>
+      </div>
+      <div class="card-title">Tata AIG GPA Rater</div>
+      <div class="card-desc">Tata AIG Group Personal Accident calculator. Click to open the Excel rater for premium computation.</div>
+      <div class="card-footer">
+        <span class="status"><span class="dot live"></span> Excel</span>
+        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>Healthysure &nbsp;·&nbsp; Internal use only &nbsp;·&nbsp; View-only access — editing is not permitted &nbsp;·&nbsp; © 2026</footer>
+
+</body>
+</html>
