@@ -36,9 +36,7 @@ body {
   max-width: 1060px;
   margin: 0 auto;
 }
-.logo-row {
-  margin-bottom: 2rem;
-}
+.logo-row { margin-bottom: 2rem; }
 .logo { height: 40px; }
 .header-title {
   font-size: 1.875rem;
@@ -59,13 +57,16 @@ body {
   padding: 2.5rem 2.5rem 4rem;
 }
 
+/* Section spacing */
+.section { margin-bottom: 2.75rem; }
+
 .section-label {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--green-main);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .grid {
@@ -74,6 +75,7 @@ body {
   gap: 1rem;
 }
 
+/* ── Generic card ── */
 .card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -93,32 +95,8 @@ body {
   cursor: pointer;
 }
 
-.card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.insurer-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.insurer-icon {
-  width: 38px; height: 38px;
-  border-radius: 9px;
-  background: var(--green-light);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.625rem;
-  font-weight: 700;
-  color: var(--green-dark);
-  line-height: 1.2;
-  text-align: center;
-}
-.insurer-name {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--text-mid);
-}
+.card-head { display: flex; align-items: center; }
+
 .type-badge {
   font-size: 0.6875rem;
   font-weight: 600;
@@ -127,8 +105,13 @@ body {
   padding: 3px 9px;
   border-radius: 100px;
 }
-.ghi  { background: #e0f4ef; color: #0a5244; }
-.gpa  { background: #e8f5e1; color: #1e5c14; }
+.ghi   { background: #e0f4ef; color: #0a5244; }
+.gpa   { background: #e8f5e1; color: #1e5c14; }
+.data  { background: #e8f0fe; color: #1a3a8f; }
+.quote { background: #fff3e0; color: #7c4a00; }
+.rfq   { background: #f3e5f5; color: #5b1b6e; }
+.tool  { background: #fce4ec; color: #7b0028; }
+.kpf   { background: #e3f2fd; color: #0d3b6e; }
 
 .card-title {
   font-size: 1.0625rem;
@@ -136,8 +119,12 @@ body {
   color: var(--text-dark);
   letter-spacing: -0.01em;
 }
+.card-desc {
+  font-size: 0.8375rem;
+  color: var(--text-mid);
+  line-height: 1.55;
+}
 
-/* Min/Max stats row */
 .stats-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -174,10 +161,7 @@ body {
   color: var(--text-mid);
   line-height: 1.5;
 }
-.notice strong {
-  font-weight: 600;
-  color: var(--green-dark);
-}
+.notice strong { font-weight: 600; color: var(--green-dark); }
 
 .card-footer {
   display: flex;
@@ -185,6 +169,7 @@ body {
   justify-content: space-between;
   padding-top: 0.875rem;
   border-top: 1px solid var(--border);
+  margin-top: auto;
 }
 .status {
   display: flex;
@@ -193,10 +178,7 @@ body {
   font-size: 0.8125rem;
   color: var(--text-muted);
 }
-.dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-}
+.dot { width: 6px; height: 6px; border-radius: 50%; }
 .dot.live { background: var(--green-main); animation: blink 2s ease infinite; }
 
 @keyframes blink {
@@ -212,11 +194,15 @@ body {
   transition: background 0.18s, color 0.18s;
   flex-shrink: 0;
 }
-.card:hover .arrow-btn {
-  background: var(--green-main);
-  color: #fff;
-}
+.card:hover .arrow-btn { background: var(--green-main); color: #fff; }
 .arrow-btn svg { width: 14px; height: 14px; }
+
+/* Divider between sections */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2.75rem;
+}
 
 footer {
   text-align: center;
@@ -240,123 +226,250 @@ footer {
       <img src="logo (2).webp" class="logo">
     </div>
     <div class="header-title">Insurance Rater Portal</div>
-    <div class="header-sub">View-only access · Select a rater to get started</div>
+    <div class="header-sub">View-only access · Select a tool to get started</div>
   </div>
 </div>
 
 <div class="main">
-  <div class="section-label">Available Raters</div>
-  <div class="grid">
 
-    <!-- Tata AIG SME Health -->
-    <a class="card" href="https://effervescent-axolotl-9d2a86.netlify.app/" target="_blank" rel="noopener">
-      <div class="card-head">
-        <div class="insurer-pill">
-          <div class="insurer-icon">TATA<br>AIG</div>
-          <span class="insurer-name">Tata AIG</span>
-        </div>
-        <span class="type-badge ghi">SME Health</span>
-      </div>
-      <div class="card-title">Tata AIG SME Health</div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-label">Min</span>
-          <span class="stat-value">10 emp</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-label">Max</span>
-          <span class="stat-value">100 lives</span>
-        </div>
-      </div>
-      <div class="notice">For <strong>in-house clients only</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
-      <div class="card-footer">
-        <span class="status"><span class="dot live"></span> Live</span>
-        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      </div>
-    </a>
+  <!-- ── 1. Member Data Collection ── -->
+  <div class="section">
+    <div class="section-label">Member Data Collection</div>
+    <div class="grid">
 
-    <!-- ICICI Lombard SME Health -->
-    <a class="card" href="https://icici-lombard-calculator.netlify.app/" target="_blank" rel="noopener">
-      <div class="card-head">
-        <div class="insurer-pill">
-          <div class="insurer-icon">ICICI<br>Lom.</div>
-          <span class="insurer-name">ICICI Lombard</span>
+      <!-- In-house -->
+      <a class="card" href="/Org Name_Employee Data Template.xlsx">
+        <div class="card-head">
+          <span class="type-badge data">In-House</span>
         </div>
-        <span class="type-badge ghi">SME Health</span>
-      </div>
-      <div class="card-title">ICICI Lombard SME Health</div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-label">Min</span>
-          <span class="stat-value">10 emp</span>
+        <div class="card-title">Employee Data Template</div>
+        <div class="card-desc">Member data collection form for in-house clients. Fill and share with the ops team.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
-        <div class="stat-box">
-          <span class="stat-label">Max</span>
-          <span class="stat-value">500 lives</span>
-        </div>
-      </div>
-      <div class="notice">For <strong>in-house clients only</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
-      <div class="card-footer">
-        <span class="status"><span class="dot live"></span> Live</span>
-        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      </div>
-    </a>
+      </a>
 
-    <!-- Bajaj General SME Health -->
-    <a class="card" href="Bajaj_Rater_Calculator-New.xlsx">
-      <div class="card-head">
-        <div class="insurer-pill">
-          <div class="insurer-icon">Bajaj<br>Gen.</div>
-          <span class="insurer-name">Bajaj General</span>
+      <!-- Partners -->
+      <a class="card" href="/Org_Name_Employee_Data_Template_Partners.xlsx">
+        <div class="card-head">
+          <span class="type-badge data">Partners</span>
         </div>
-        <span class="type-badge ghi">SME Health</span>
-      </div>
-      <div class="card-title">Bajaj General SME Health</div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-label">Min</span>
-          <span class="stat-value">11 emp</span>
+        <div class="card-title">Employee Data Template — Partners</div>
+        <div class="card-desc">Member data collection form for G3 / partner accounts. Fill and share with the ops team.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
-        <div class="stat-box">
-          <span class="stat-label">Max</span>
-          <span class="stat-value">100 emp</span>
-        </div>
-      </div>
-      <div class="notice">For <strong>G3 partners only</strong> — approved by <strong>Anjali &amp; Aditya</strong>.</div>
-      <div class="card-footer">
-        <span class="status"><span class="dot live"></span> Excel</span>
-        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      </div>
-    </a>
+      </a>
 
-    <!-- Tata AIG SME GPA -->
-    <a class="card" href="Tata_AIG_GPA_Rater.xlsx">
-      <div class="card-head">
-        <div class="insurer-pill">
-          <div class="insurer-icon">TATA<br>AIG</div>
-          <span class="insurer-name">Tata AIG</span>
-        </div>
-        <span class="type-badge gpa">SME GPA</span>
-      </div>
-      <div class="card-title">Tata AIG SME GPA</div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-label">Min</span>
-          <span class="stat-value">7 emp</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-label">Max</span>
-          <span class="stat-value">500 emp</span>
-        </div>
-      </div>
-      <div class="notice">For <strong>all in-house staff &amp; partners</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
-      <div class="card-footer">
-        <span class="status"><span class="dot live"></span> Excel</span>
-        <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      </div>
-    </a>
-
+    </div>
   </div>
+
+  <hr class="divider">
+
+  <!-- ── 2. Get Quote Engine ── -->
+  <div class="section">
+    <div class="section-label">Get Quote Engine</div>
+    <div class="grid">
+
+      <a class="card" href="https://getquote.bharatsure.com/" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge quote">Live Tool</span>
+        </div>
+        <div class="card-title">BharatSure Get Quote</div>
+        <div class="card-desc">Generate instant quotes for prospects via the BharatSure quote engine.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Live</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 3. RFQ Templates ── -->
+  <div class="section">
+    <div class="section-label">RFQ Templates</div>
+    <div class="grid">
+
+      <!-- Fresh -->
+      <a class="card" href="/HealthySure_GHI_RFQ_-_Template-Fresh.xlsx">
+        <div class="card-head">
+          <span class="type-badge rfq">Fresh</span>
+        </div>
+        <div class="card-title">GHI RFQ Template — Fresh</div>
+        <div class="card-desc">Use for new / first-time group health insurance requests.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Renewal -->
+      <a class="card" href="/HealthySure_GHI_RFQ_Template_-_Renewal_-_Updated.xlsx">
+        <div class="card-head">
+          <span class="type-badge rfq">Renewal</span>
+        </div>
+        <div class="card-title">GHI RFQ Template — Renewal</div>
+        <div class="card-desc">Use for existing clients coming up for policy renewal.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 4. Raters ── -->
+  <div class="section">
+    <div class="section-label">Insurance Raters</div>
+    <div class="grid">
+
+      <!-- Tata AIG SME Health -->
+      <a class="card" href="https://effervescent-axolotl-9d2a86.netlify.app/" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge ghi">SME Health</span>
+        </div>
+        <div class="card-title">Tata AIG SME Health</div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-label">Min</span>
+            <span class="stat-value">10 emp</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Max</span>
+            <span class="stat-value">100 lives</span>
+          </div>
+        </div>
+        <div class="notice">For <strong>in-house clients only</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Live</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <!-- ICICI Lombard SME Health -->
+      <a class="card" href="https://icici-lombard-calculator.netlify.app/" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge ghi">SME Health</span>
+        </div>
+        <div class="card-title">ICICI Lombard SME Health</div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-label">Min</span>
+            <span class="stat-value">10 emp</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Max</span>
+            <span class="stat-value">500 lives</span>
+          </div>
+        </div>
+        <div class="notice">For <strong>in-house clients only</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Live</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Bajaj General SME Health -->
+      <a class="card" href="Bajaj_Rater_Calculator-New.xlsx">
+        <div class="card-head">
+          <span class="type-badge ghi">SME Health</span>
+        </div>
+        <div class="card-title">Bajaj General SME Health</div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-label">Min</span>
+            <span class="stat-value">11 emp</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Max</span>
+            <span class="stat-value">100 emp</span>
+          </div>
+        </div>
+        <div class="notice">For <strong>G3 partners only</strong> — approved by <strong>Anjali &amp; Aditya</strong>.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Tata AIG SME GPA -->
+      <a class="card" href="Tata_AIG_GPA_Rater.xlsx">
+        <div class="card-head">
+          <span class="type-badge gpa">SME GPA</span>
+        </div>
+        <div class="card-title">Tata AIG SME GPA</div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-label">Min</span>
+            <span class="stat-value">7 emp</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Max</span>
+            <span class="stat-value">500 emp</span>
+          </div>
+        </div>
+        <div class="notice">For <strong>all in-house staff &amp; partners</strong> — approved by <strong>Aditya &amp; Anjali</strong>.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> Excel</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 5. GHI RFQ Send (Placement Tool) ── -->
+  <div class="section">
+    <div class="section-label">GHI RFQ Automation</div>
+    <div class="grid">
+
+      <a class="card" href="https://healthysurein.sharepoint.com/:f:/s/HealthySureGroup/IgC5KO6WMfyJSL2PsO5t3PlPAYBOWfqrtH0TChKU9mx66So?e=2eUpXd" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge tool">Placement Tool</span>
+        </div>
+        <div class="card-title">RFQ Mail Sender</div>
+        <div class="card-desc">Automated GHI RFQ email dispatch tool. Opens the SharePoint folder with the placement tool files.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> SharePoint</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── 6. QCR – KPF 3.1 ── -->
+  <div class="section">
+    <div class="section-label">QCR — Key Policy Features</div>
+    <div class="grid">
+
+      <a class="card" href="https://healthysurein.sharepoint.com/:x:/s/HealthySureGroup/IQDuQtsqSZXhQIyq7Phen-DKAeL49jk0w_undzKRf7xvCpI?e=bnT59y" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge kpf">KPF v3.1</span>
+        </div>
+        <div class="card-title">Key Policy Features Auto v3.1</div>
+        <div class="card-desc">QCR — KPF auto-generation tool (WIP). Opens directly in SharePoint Excel.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span> SharePoint</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
 </div>
 
 <footer>Healthysure &nbsp;·&nbsp; Internal use only &nbsp;·&nbsp; View-only access — editing is not permitted &nbsp;·&nbsp; © 2026</footer>
