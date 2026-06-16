@@ -40,7 +40,8 @@
   gap: 1.5rem;
 }
 .gate-logo {
-  height: 32px;
+  height: 40px;
+  border-radius: 8px;
 }
 .gate-heading {
   font-size: 1.375rem;
@@ -121,7 +122,39 @@ body {
 }
 .header-inner { max-width: 1060px; margin: 0 auto; }
 .logo-row { margin-bottom: 1.75rem; }
-.logo { height: 36px; }
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.wordmark-icon {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.wordmark-icon span { font-weight: 900; }
+.wordmark-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+/* Gate variant */
+.gate-wordmark .wordmark-icon {
+  background: var(--green-main);
+}
+.gate-wordmark .wordmark-text {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
 .header-title {
   font-size: 1.75rem;
   font-weight: 700;
@@ -320,7 +353,10 @@ footer {
      ══════════════════════════════ -->
 <div id="gate">
   <div class="gate-box">
-    <img src="logo (2).webp" class="gate-logo" alt="Healthysure">
+    <div class="wordmark gate-wordmark">
+      <div class="wordmark-icon">H<span>+</span></div>
+      <span class="wordmark-text">healthysure</span>
+    </div>
     <div>
       <div class="gate-heading">Portal Access</div>
       <div class="gate-sub">Enter your password to continue</div>
@@ -339,7 +375,10 @@ footer {
 <div class="header">
   <div class="header-inner">
     <div class="logo-row">
-      <img src="logo (2).webp" class="logo" alt="Healthysure">
+      <div class="wordmark">
+        <div class="wordmark-icon">H<span>+</span></div>
+        <span class="wordmark-text">healthysure</span>
+      </div>
     </div>
     <div class="header-title">Group Health Pre-Sales Portal</div>
     <div class="header-sub">Internal use only &nbsp;·&nbsp; View-only access</div>
@@ -357,7 +396,7 @@ footer {
         <div class="card-head">
           <span class="type-badge data">In-House</span>
         </div>
-        <div class="card-title">Employee Data Template - inhouse clients</div>
+        <div class="card-title">Employee Data Template</div>
         <div class="card-desc">Member data collection for in-house clients.</div>
         <div class="card-footer">
           <span class="status"><span class="dot live"></span>Excel</span>
@@ -369,7 +408,7 @@ footer {
         <div class="card-head">
           <span class="type-badge data">Partners</span>
         </div>
-        <div class="card-title">Employee Data Template - POS Partners</div>
+        <div class="card-title">POS — Partners</div>
         <div class="card-desc">Member data collection for G3 partners.</div>
         <div class="card-footer">
           <span class="status"><span class="dot live"></span>Excel</span>
