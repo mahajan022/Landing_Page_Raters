@@ -54,6 +54,7 @@ body { font-family: 'Inter', sans-serif; background: var(--green-pale); color: v
 .kpf   { background: #e3f2fd; color: #0d3b6e; }
 .claims { background: #fff0e6; color: #8a3a00; }
 .bench  { background: #ede7f6; color: #3a1c70; }
+.guide  { background: #e8f5e1; color: #1e5c14; }
 .card-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); letter-spacing: -0.015em; line-height: 1.35; }
 .card-desc { font-size: 0.8125rem; color: var(--text-mid); line-height: 1.6; }
 .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
@@ -203,7 +204,41 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--t
 
   <hr class="divider">
 
-  <!-- 4. Insurance Raters -->
+  <!-- 4. RFQ Mail Sender Automation -->
+  <div class="section">
+    <div class="section-label">RFQ Sending</div>
+    <div class="grid">
+
+      <a class="card" href="https://healthysurein.sharepoint.com/:f:/s/HealthySureGroup/IgC5KO6WMfyJSL2PsO5t3PlPAYBOWfqrtH0TChKU9mx66So?e=2eUpXd" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge tool">Placement Tool</span>
+        </div>
+        <div class="card-title">RFQ Mail Sender Automation</div>
+        <div class="card-desc">Automated GHI RFQ email sender. Opens the SharePoint folder with placement tool files.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span>SharePoint</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+      <a class="card" href="https://healthysurein.sharepoint.com/:x:/s/HealthySureGroup/IQDndzbqW5CbSrbw2kZQMqneAVhDAJT3tJUVw9VFhPlE8ho?e=3bg5tB" target="_blank" rel="noopener">
+        <div class="card-head">
+          <span class="type-badge guide">Guide</span>
+        </div>
+        <div class="card-title">Simplified Quote Generation Guide</div>
+        <div class="card-desc">Step-by-step guide for simplified quote generation. Always links to the latest version.</div>
+        <div class="card-footer">
+          <span class="status"><span class="dot live"></span>SharePoint</span>
+          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 5. Insurance Raters -->
   <div class="section">
     <div class="section-label">Insurance Raters</div>
     <div class="grid">
@@ -301,28 +336,6 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--t
 
   <hr class="divider">
 
-  <!-- 5. GHI RFQ Automation -->
-  <div class="section">
-    <div class="section-label">GHI RFQ Automation</div>
-    <div class="grid">
-
-      <a class="card" href="https://healthysurein.sharepoint.com/:f:/s/HealthySureGroup/IgC5KO6WMfyJSL2PsO5t3PlPAYBOWfqrtH0TChKU9mx66So?e=2eUpXd" target="_blank" rel="noopener">
-        <div class="card-head">
-          <span class="type-badge tool">Placement Tool</span>
-        </div>
-        <div class="card-title">RFQ Mail Sender</div>
-        <div class="card-desc">Automated GHI RFQ email sender. Opens the SharePoint folder with placement tool files.</div>
-        <div class="card-footer">
-          <span class="status"><span class="dot live"></span>SharePoint</span>
-          <div class="arrow-btn"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <hr class="divider">
-
   <!-- 6. QCR — KPF -->
   <div class="section">
     <div class="section-label">QCR — Key Policy Features</div>
@@ -396,10 +409,6 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--t
 </div><!-- /app -->
 
 <script>
-  // ════════════════════════════════════════
-  //  PASSWORD CONFIG
-  //  To change: update PORTAL_PASSWORD below, redeploy.
-  // ════════════════════════════════════════
   const PORTAL_PASSWORD = "Healthysure@2026";
 
   const gate  = document.getElementById('gate');
@@ -407,7 +416,6 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--t
   const input = document.getElementById('pw-input');
   const error = document.getElementById('gate-error');
 
-  // Check if already authenticated this session
   if (sessionStorage.getItem('hs_auth') === '1') {
     gate.style.display = 'none';
     app.style.display  = 'block';
@@ -426,7 +434,6 @@ footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--t
     }
   }
 
-  // Allow Enter key to submit
   input.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') checkPassword();
   });
